@@ -121,6 +121,6 @@ TEST(String, Swap) {
 
     s0.swap(s1);
 
-    EXPECT_EQ(s0,"other string");
+    EXPECT_EQ(s0, "other string");
     EXPECT_EQ(s1, "some string");
 }

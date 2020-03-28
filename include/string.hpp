@@ -149,3 +149,4 @@ bool operator>(const String& a, const String& b);
 std::ostream& operator<<(std::ostream& out, const String& str);
 
 #endif  // INCLUDE_STRING_HPP_
+

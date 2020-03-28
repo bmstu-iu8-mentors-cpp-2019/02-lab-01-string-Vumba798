@@ -1,4 +1,4 @@
-//
+// Copyright 2020 Vumba798
 // Created by alexey on 16.03.2020.
 //
 #include "string.hpp"
@@ -21,13 +21,13 @@ String::String(const String &rhs){
         for (size_t i = 0; i < len; ++i) {
             Data[i] = rhs.Data[i];
         }
-        Data[rhs.Size()] = 0; // Последним символом запишем 0 - символ конца строки
+        Data[rhs.Size()] = 0;
     }
 }
 
 String::String(const char* data){
     size_t len = 0;
-    while(data[len]){
+    while (data[len]) {
         ++len;
     }
     Data = new char[len + 1];
@@ -81,7 +81,7 @@ String& String::operator*=(unsigned int m){
         }
     }
     new_str[len * m] = 0;
-    if(Data != nullptr) {
+    if (Data != nullptr) {
         delete[] Data;
     }
     Data = new_str;
@@ -153,7 +153,7 @@ void String::Replace(char oldSymbol, char newSymbol) {
 
 size_t String::Size() const{
     size_t len = 0;
-    if(Data != nullptr) {
+    if (Data != nullptr) {
         while (Data[len]) {
             ++len;
         }
@@ -182,13 +182,13 @@ void String::LTrim(char symbol) {
     size_t index = 0;
     size_t len = Size();
     for (size_t i = 0; i < len; ++i){
-        if(Data[i] == symbol){
+        if (Data[i] == symbol){
             ++index;
         }else{
             break;
         }
     }
-    if(index!= len - 1){
+    if  (index!= len - 1){
         static char* newStr = new char[len - index];
         for (size_t j = 0; j < len; ++j){
            newStr[j] = Data[index + j];
@@ -253,11 +253,11 @@ String operator*(const String &a, unsigned int b){
 }
 
 bool operator!=(const String &a, const String &b){
-   return a!=b;
+   return a != b;
 }
 
 bool operator>(const String &a, const String &b){
-    return a>b;
+    return a > b;
 }
 
 std::ostream& operator<<(std::ostream& out, const String& str){
