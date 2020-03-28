@@ -30,7 +30,7 @@ find_package(GTest CONFIG REQUIRED)
 
 # TODO: change template word to project name and delete this comment
 add_library(template STATIC
-       ${CMAKE_INCLUDE_CURRENT_DIR}/string.cpp
+       ${CMAKE_INCLUDE_CURRENT_DIR}string.cpp
   # enum your files and delete this comment
  #  ${CMAKE_CURRENT_SOURCE_DIR}/sources/source.cpp
         #/home/alexey/labs/02-lab-01-string-Vumba798/include/string.cpp)
