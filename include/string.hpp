@@ -7,7 +7,7 @@
 #include <iostream>
 
 class String {
- public:
+public:
   /// Деструктор
   ~String();
 
@@ -41,7 +41,6 @@ class String {
   /// <param name="rhs">Объект, который стоит после знака '==' </param>
   /// <returns>Возвращаем значения равенства двух строк</returns>
   bool operator==(const String& rhs) const;
-
   /// Оператор &lt;
   /// <param name="rhs">Объект, который стоит после знака "&lt;" </param>
   /// <returns>Возвращаем значения сравнения двух строк</returns>
@@ -58,7 +57,7 @@ class String {
   /// <param name="newSymbol">Символ, на который требуется заменить </param>
   void Replace(char oldSymbol, char newSymbol);
 
-  /// Функция возвращает длину строки
+  /// Функция возвращает длину ст роки
   /// <returns>Возвращаем длину строки</returns>
   size_t Size() const;
 
@@ -135,6 +134,8 @@ String operator+(const String& a, const String& b);
 /// </example>
 String operator*(const String& a, unsigned int b);
 
+
+//bool operator==(const char* str, const String& obj);
 /// Оператор !=
 bool operator!=(const String& a, const String& b);
 
