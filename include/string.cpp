@@ -53,7 +53,7 @@ String& String::operator=(const String& rhs){
 }
 
 String& String::operator+=(const String& rhs){
-    // модификатор static позволяет переменной пережить выход из блока  
+    // модификатор static позволяет переменной пережить выход из блока
     size_t len = Size();
     size_t rhsLen = rhs.Size();
     size_t newLen = len + rhsLen;
@@ -70,6 +70,11 @@ String& String::operator+=(const String& rhs){
     }
     Data = newStr;
     return *this;
+}
+
+String& String::operator+=(const char* str) {
+    String obj(str);
+    return *this += obj;
 }
 
 String& String::operator*=(unsigned int m){
@@ -103,6 +108,10 @@ bool String::operator==(const String &rhs) const {
     }
 }
 
+bool String::operator==(const char* str) const{
+    String obj(str);
+    return *this == obj;
+}
 
 bool String::operator<(const String& rhs) const{
     size_t len = Size();
@@ -140,6 +149,11 @@ size_t String::Find(const String& substr) const {
     return -1;
 }
 
+
+size_t String::Find(const char *str) const {
+    String obj (str);
+    return this->Find(obj);
+}
 
 
 void String::Replace(char oldSymbol, char newSymbol) {
