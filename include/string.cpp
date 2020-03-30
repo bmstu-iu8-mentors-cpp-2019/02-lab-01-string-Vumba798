@@ -53,7 +53,7 @@ String& String::operator=(const String& rhs){
 }
 
 String& String::operator+=(const String& rhs){
-    // модификатор static позволяет переменной пережить выход из блока
+    // модификатор static позволяет переменной пережить выход из блока  
     size_t len = Size();
     size_t rhsLen = rhs.Size();
     size_t newLen = len + rhsLen;
