@@ -151,7 +151,7 @@ size_t String::Find(const String& substr) const {
 
 
 size_t String::Find(const char *str) const {
-    String obj (str);
+    String obj(str);
     return this->Find(obj);
 }
 
