@@ -267,11 +267,15 @@ String operator*(const String &a, unsigned int b){
 }
 
 bool operator!=(const String &a, const String &b){
-   return a != b;
+   return !(a == b);
 }
 
 bool operator>(const String &a, const String &b){
-    return a > b;
+    if (a == b){
+        return false;
+    }else{
+        return a < b;
+    }
 }
 
 std::ostream& operator<<(std::ostream& out, const String& str){
