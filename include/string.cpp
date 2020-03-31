@@ -27,7 +27,7 @@ String::String(const String &rhs){
 
 String::String(const char* data){
     size_t len = 0;
-    while (data[len]) {
+    while (data[len] != 0) {
         ++len;
     }
     Data = new char[len + 1];
