@@ -53,7 +53,6 @@ String& String::operator=(const String& rhs){
 }
 
 String& String::operator+=(const String& rhs){
-    // модификатор static позволяет переменной пережить выход из блока
     size_t len = Size();
     size_t rhsLen = rhs.Size();
     size_t newLen = len + rhsLen;
@@ -61,13 +60,11 @@ String& String::operator+=(const String& rhs){
     for (size_t i = 0; i < len; ++i){
         newStr[i] = Data[i];
     }
-    for (size_t j = 0; j < newLen; ++j){
+    for (size_t j = 0; j < rhsLen; ++j){
         newStr[j + len] = rhs.Data[j];
     }
     newStr[newLen] = 0;
-    if (Data != nullptr) {
-        delete[] Data;
-    }
+    delete[] Data;
     Data = newStr;
     return *this;
 }
