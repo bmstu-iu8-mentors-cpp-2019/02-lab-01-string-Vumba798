@@ -26,10 +26,11 @@ String::String(const String &rhs){
 }
 
 String::String(const char* data){
-    size_t len = 0;
-    while (data[len] != 0) {
-        ++len;
+    const char* end = data;
+    while (*end++ != 0) {
+        ++end;
     }
+    size_t len = end - data - 1;
     Data = new char[len + 1];
     for (size_t i = 0; i < len; ++i){
         Data[i] = data[i];
