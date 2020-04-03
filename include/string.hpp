@@ -5,9 +5,10 @@
 
 #include <cstddef>
 #include <iostream>
+#include <utility>
 
 class String {
- public:
+public:
   /// Деструктор
   ~String();
 
@@ -21,7 +22,7 @@ class String {
   /// Пользовательский конструктор
   /// <param name="data">Данные, которые требуется поместить в создаваемый
   /// объект </param>
-  String(const char* data);
+  explicit String(const char* data);
 
   /// Оператор присваивания
   /// <param name="data">Объект, который копируем </param>
@@ -33,6 +34,7 @@ class String {
   /// <returns>Возвращаем ссылку на себя</returns>
   String& operator+=(const String& rhs);
 
+  String&operator+=(const char* str);
   /// Оператор *=
   /// <returns>Возвращаем ссылку на себя</returns>
   String& operator*=(unsigned int m);
@@ -42,6 +44,7 @@ class String {
   /// <returns>Возвращаем значения равенства двух строк</returns>
   bool operator==(const String& rhs) const;
 
+  bool operator==(const char* str) const;
   /// Оператор &lt;
   /// <param name="rhs">Объект, который стоит после знака "&lt;" </param>
   /// <returns>Возвращаем значения сравнения двух строк</returns>
@@ -53,12 +56,13 @@ class String {
   /// возвратить -1</returns>
   size_t Find(const String& substr) const;
 
+  size_t Find(const char* str) const;
   /// Функция замены символов, заменяет все символы oldSymbol на newSymbol.
   /// <param name="oldSymbol">Символ, который требуется заменить </param>
   /// <param name="newSymbol">Символ, на который требуется заменить </param>
   void Replace(char oldSymbol, char newSymbol);
 
-  /// Функция возвращает длину строки
+  /// Функция возвращает длину ст роки
   /// <returns>Возвращаем длину строки</returns>
   size_t Size() const;
 
@@ -135,6 +139,8 @@ String operator+(const String& a, const String& b);
 /// </example>
 String operator*(const String& a, unsigned int b);
 
+
+//bool operator==(const char* str, const String& obj);
 /// Оператор !=
 bool operator!=(const String& a, const String& b);
 
@@ -148,3 +154,4 @@ bool operator>(const String& a, const String& b);
 std::ostream& operator<<(std::ostream& out, const String& str);
 
 #endif  // INCLUDE_STRING_HPP_
+
