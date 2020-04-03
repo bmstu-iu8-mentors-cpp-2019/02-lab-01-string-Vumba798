@@ -197,14 +197,17 @@ void String::LTrim(char symbol) {
             break;
         }
     }
-    if  (index!= len - 1){
+    if  (index != len){
         static char* newStr = new char[len - index];
-        for (size_t j = 0; index + j < len; ++j){
+        for (size_t j = 0; j < len - index; ++j){
            newStr[j] = Data[index + j];
         }
         newStr[len - index] = 0;
         delete[] Data;
         Data = newStr;
+    }else{
+        delete[] Data;
+        Data = nullptr;
     }
 }
 
