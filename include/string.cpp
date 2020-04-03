@@ -198,7 +198,7 @@ void String::LTrim(char symbol) {
         }
     }
     if  (index != len){
-        static char* newStr = new char[len - index];
+        static char* newStr = new char[len - index + 1];
         for (size_t j = 0; j < len - index; ++j){
            newStr[j] = Data[index + j];
         }
