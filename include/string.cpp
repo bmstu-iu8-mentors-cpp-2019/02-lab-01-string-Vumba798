@@ -257,6 +257,7 @@ String operator*(const String &a, unsigned int b){
             newData[(i * len) + j] = a[j];
         }
     }
+    newData[newLen] = 0;
     static String newString(newData);
     return newString;
 }
