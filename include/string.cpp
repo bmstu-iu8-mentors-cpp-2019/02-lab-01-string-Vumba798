@@ -1,6 +1,7 @@
 // Copyright 2020 Vumba798
 // Created by alexey on 16.03.2020.
 //
+#include <cstring>
 #include "string.hpp"
 
 String::~String(){
@@ -26,11 +27,7 @@ String::String(const String &rhs){
 }
 
 String::String(const char* data){
-    const char* end = data;
-    while (*end++ != 0) {
-        ++end;
-    }
-    size_t len = end - data - 1;
+    size_t len = strlen(data);
     Data = new char[len + 1];
     for (size_t i = 0; i < len; ++i){
         Data[i] = data[i];
